@@ -39,3 +39,6 @@ frontend/.vite/
 # 发布
 dist/
 build/
+local-backups/*.key.txt
+!local-backups/
+!local-backups/*.aes
