@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+  /* 数字/价格通用样式 */
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-3 py-1.5 rounded-md text-sm
+           border border-border bg-bg-soft hover:bg-bg-raised transition
+           focus:outline-none focus:ring-2 focus:ring-accent-info/40 disabled:opacity-50
+           disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-accent-info/20 border-accent-info/40 hover:bg-accent-info/30
+           text-white;
+  }
+  .btn-up {
+    @apply btn bg-accent-up/20 border-accent-up/40 hover:bg-accent-up/30
+           text-accent-up;
+  }
+  .btn-down {
+    @apply btn bg-accent-down/20 border-accent-down/40 hover:bg-accent-down/30
+           text-accent-down;
+  }
+  .btn-warn {
+    @apply btn bg-accent-warn/20 border-accent-warn/40 hover:bg-accent-warn/30
+           text-accent-warn;
+  }
+  .card {
+    @apply bg-bg-soft border border-border rounded-lg;
+  }
+  .input {
+    @apply w-full bg-bg border border-border rounded-md px-2 py-1.5 text-sm
+           focus:outline-none focus:ring-2 focus:ring-accent-info/40
+           placeholder:text-text-muted;
+  }
+  .label {
+    @apply block text-xs text-text-muted mb-1;
+  }
+  .tag {
+    @apply inline-flex px-1.5 py-0.5 text-[11px] rounded border border-border
+           text-text-soft bg-bg;
+  }
+}
+
+/* 滚动条（Webkit） */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

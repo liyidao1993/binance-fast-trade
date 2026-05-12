@@ -1,0 +1,24 @@
+# 单机 Docker 部署：backend(FastAPI) + frontend(nginx 静态 + /api 反代)
+# W6 会接入 Caddy 做 HTTPS + IP 白名单；单机 testnet 用这个即可。
+
+services:
+  backend:
+    build: ./backend
+    container_name: bft-backend
+    volumes:
+      - ./data:/app/data            # SQLite + 日志
+    env_file: .env
+    expose:
+      - "8000"                      # 仅 frontend 容器内部访问
+    ports:
+      - "127.0.0.1:8000:8000"      # 宿主机 127 调试用；上线可移除
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: bft-frontend
+    depends_on:
+      - backend
+    ports:
+      - "127.0.0.1:8080:80"
+    restart: unless-stopped

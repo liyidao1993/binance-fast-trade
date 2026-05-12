@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# 项目本地文件
+.env
+.env.local
+data/
+*.db
+*.db-journal
+*.log
+*.out
+logs/
+
+# 前端
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# 发布
+dist/
+build/
